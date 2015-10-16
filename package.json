@@ -1,0 +1,26 @@
+{
+  "name": "take2-node",
+  "version": "0.0.1",
+  "description": "An SDK for Take2 in node.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbarho/take2-node.git"
+  },
+  "keywords": [
+    "take2",
+    "node"
+  ],
+  "author": "ty@take2.co",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tbarho/take2-node/issues"
+  },
+  "homepage": "https://github.com/tbarho/take2-node#readme"
+}
