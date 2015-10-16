@@ -10,7 +10,7 @@ describe(`${Resource} Resource`, function() {
       take2.products.list();
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'GET',
-        url: 'http://api.take2.co:443/v1/Products',
+        url: 'http://api.take2.co:443/v1/products',
         headers: {
           'Authorization' : `Basic ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
@@ -24,7 +24,7 @@ describe(`${Resource} Resource`, function() {
       take2.products.retrieve(1);
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'GET',
-        url: 'http://api.take2.co:443/v1/Products/1',
+        url: 'http://api.take2.co:443/v1/products/1',
         headers: {
           'Authorization' : `Basic ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
@@ -38,7 +38,7 @@ describe(`${Resource} Resource`, function() {
       take2.products.create({ name: 'Test Data' });
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'POST',
-        url: 'http://api.take2.co:443/v1/Products',
+        url: 'http://api.take2.co:443/v1/products',
         headers: {
           'Authorization' : `Basic ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
@@ -55,7 +55,7 @@ describe(`${Resource} Resource`, function() {
       take2.products.update(1, { name: 'Test Data' });
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'PUT',
-        url: 'http://api.take2.co:443/v1/Products/1',
+        url: 'http://api.take2.co:443/v1/products/1',
         headers: {
           'Authorization' : `Basic ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
@@ -72,7 +72,7 @@ describe(`${Resource} Resource`, function() {
       take2.products.destroy(1);
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'DELETE',
-        url: 'http://api.take2.co:443/v1/Products/1',
+        url: 'http://api.take2.co:443/v1/products/1',
         headers: {
           'Authorization' : `Basic ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
