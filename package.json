@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tbarho/take2-node.git"
+    "url": "git+https://github.com/take2mfg/take2-node.git"
   },
   "keywords": [
     "take2",
@@ -20,9 +20,9 @@
   "author": "ty@take2.co",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tbarho/take2-node/issues"
+    "url": "https://github.com/take2mfg/take2-node/issues"
   },
-  "homepage": "https://github.com/tbarho/take2-node#readme",
+  "homepage": "https://github.com/take2mfg/take2-node#readme",
   "dependencies": {
     "babel": "^5.8.29",
     "lodash": "^3.10.1",
