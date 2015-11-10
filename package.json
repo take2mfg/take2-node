@@ -2,7 +2,7 @@
   "name": "take2-node",
   "version": "0.0.1",
   "description": "An SDK for Take2 in node.js",
-  "main": "index.js",
+  "main": "lib/take2.js",
   "directories": {
     "test": "test"
   },
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tbarho/take2-node.git"
+    "url": "git+https://github.com/take2mfg/take2-node.git"
   },
   "keywords": [
     "take2",
@@ -20,7 +20,18 @@
   "author": "ty@take2.co",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tbarho/take2-node/issues"
+    "url": "https://github.com/take2mfg/take2-node/issues"
   },
-  "homepage": "https://github.com/tbarho/take2-node#readme"
+  "homepage": "https://github.com/take2mfg/take2-node#readme",
+  "dependencies": {
+    "babel": "^5.8.29",
+    "lodash": "^3.10.1",
+    "request": "^2.65.0",
+    "rsvp": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.1.0",
+    "chai-string": "^1.1.3"
+  }
 }
