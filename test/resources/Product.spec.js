@@ -12,7 +12,7 @@ describe(`${Resource} Resource`, function() {
         method: 'GET',
         url: 'http://api.take2.co:443/v1/products',
         headers: {
-          'Authorization' : `Basic ${TEST_AUTH_KEY}`,
+          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
         }
       });
@@ -26,7 +26,7 @@ describe(`${Resource} Resource`, function() {
         method: 'GET',
         url: 'http://api.take2.co:443/v1/products/1',
         headers: {
-          'Authorization' : `Basic ${TEST_AUTH_KEY}`,
+          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
         }
       });
@@ -40,7 +40,7 @@ describe(`${Resource} Resource`, function() {
         method: 'POST',
         url: 'http://api.take2.co:443/v1/products',
         headers: {
-          'Authorization' : `Basic ${TEST_AUTH_KEY}`,
+          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
         },
         json: {
@@ -57,7 +57,7 @@ describe(`${Resource} Resource`, function() {
         method: 'PUT',
         url: 'http://api.take2.co:443/v1/products/1',
         headers: {
-          'Authorization' : `Basic ${TEST_AUTH_KEY}`,
+          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
         },
         json: {
@@ -74,7 +74,7 @@ describe(`${Resource} Resource`, function() {
         method: 'DELETE',
         url: 'http://api.take2.co:443/v1/products/1',
         headers: {
-          'Authorization' : `Basic ${TEST_AUTH_KEY}`,
+          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
         }
       });
