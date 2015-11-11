@@ -93,8 +93,6 @@ function Take2(key, options) {
     return new Take2(key, options);
   }
 
-  console.log({ key: key });
-
   this.options = options || {};
 
   if (!key) {
@@ -146,8 +144,6 @@ Take2.prototype = {
     if (this.headers) {
       options.headers = this.headers;
     }
-
-    console.log({ options: options });
 
     return options;
   },
