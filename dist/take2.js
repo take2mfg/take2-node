@@ -41,21 +41,18 @@ function buildOptions(method, path, data) {
 }
 
 var methods = {
-  products: {
+  carts: {
     list: function list() {
-      return this.get('products');
+      return this.get('carts');
     },
     retrieve: function retrieve(id) {
-      return this.get('products/' + id);
+      return this.get('carts/' + id);
     },
     create: function create(data) {
-      return this.post('products', data);
+      return this.post('carts', data);
     },
     update: function update(id, data) {
-      return this.put('products/' + id, data);
-    },
-    destroy: function destroy(id) {
-      return this.del('products/' + id);
+      return this.put('carts/' + id, data);
     }
   },
   customizables: {
@@ -75,14 +72,27 @@ var methods = {
       return this.del('customizables/' + id);
     }
   },
+  products: {
+    list: function list() {
+      return this.get('products');
+    },
+    retrieve: function retrieve(id) {
+      return this.get('products/' + id);
+    },
+    create: function create(data) {
+      return this.post('products', data);
+    },
+    update: function update(id, data) {
+      return this.put('products/' + id, data);
+    },
+    destroy: function destroy(id) {
+      return this.del('products/' + id);
+    }
+  },
   visitorTokens: {
-    // list()           { return this.get('visitorTokens'); },
-    // retrieve(id)     { return this.get('visitorTokens/'+id); },
     create: function create(data) {
       return this.post('visitorTokens', data);
     }
-    // update(id, data) { return this.put('visitorTokens/'+id, data); },
-    // destroy(id)      { return this.del('visitorTokens/'+id); }
   }
 };
 
