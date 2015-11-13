@@ -183,15 +183,27 @@ Take2.prototype = {
     } else {
       return new _rsvp.Promise(function (resolve, reject) {
         (0, _request3['default'])(options, function (err, res, body) {
+          var error = undefined;
+
           if (err) {
-            return reject(err);
-          } else {
-            try {
+            error = err;
+          } else if (body && body.error) {
+            error = JSON.stringify(body.error);
+          }
+
+          if (error) {
+            return reject(error);
+          }
+
+          try {
+            if (typeof body === "object") {
+              resolve(body);
+            } else {
               var _data = JSON.parse(body);
               resolve(_data);
-            } catch (e) {
-              reject('Unabled to parse response body.');
             }
+          } catch (e) {
+            reject('Unabled to parse response body.');
           }
         });
       });
