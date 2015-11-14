@@ -41,21 +41,12 @@ function buildOptions(method, path, data) {
 }
 
 var methods = {
-  products: {
-    list: function list() {
-      return this.get('products');
-    },
+  carts: {
     retrieve: function retrieve(id) {
-      return this.get('products/' + id);
+      return this.get('carts/' + id);
     },
     create: function create(data) {
-      return this.post('products', data);
-    },
-    update: function update(id, data) {
-      return this.put('products/' + id, data);
-    },
-    destroy: function destroy(id) {
-      return this.del('products/' + id);
+      return this.post('createFromVisitorToken', data);
     }
   },
   customizables: {
@@ -75,14 +66,27 @@ var methods = {
       return this.del('customizables/' + id);
     }
   },
+  products: {
+    list: function list() {
+      return this.get('products');
+    },
+    retrieve: function retrieve(id) {
+      return this.get('products/' + id);
+    },
+    create: function create(data) {
+      return this.post('products', data);
+    },
+    update: function update(id, data) {
+      return this.put('products/' + id, data);
+    },
+    destroy: function destroy(id) {
+      return this.del('products/' + id);
+    }
+  },
   visitorTokens: {
-    // list()           { return this.get('visitorTokens'); },
-    // retrieve(id)     { return this.get('visitorTokens/'+id); },
     create: function create(data) {
       return this.post('visitorTokens', data);
     }
-    // update(id, data) { return this.put('visitorTokens/'+id, data); },
-    // destroy(id)      { return this.del('visitorTokens/'+id); }
   }
 };
 
@@ -173,15 +177,27 @@ Take2.prototype = {
     } else {
       return new _rsvp.Promise(function (resolve, reject) {
         (0, _request3['default'])(options, function (err, res, body) {
+          var error = undefined;
+
           if (err) {
-            return reject(err);
-          } else {
-            try {
+            error = err;
+          } else if (body && body.error) {
+            error = JSON.stringify(body.error);
+          }
+
+          if (error) {
+            return reject(error);
+          }
+
+          try {
+            if (typeof body === "object") {
+              resolve(body);
+            } else {
               var _data = JSON.parse(body);
               resolve(_data);
-            } catch (e) {
-              reject('Unabled to parse response body.');
             }
+          } catch (e) {
+            reject('Unabled to parse response body.');
           }
         });
       });
