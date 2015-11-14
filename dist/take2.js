@@ -42,17 +42,11 @@ function buildOptions(method, path, data) {
 
 var methods = {
   carts: {
-    list: function list() {
-      return this.get('carts');
-    },
     retrieve: function retrieve(id) {
       return this.get('carts/' + id);
     },
     create: function create(data) {
-      return this.post('carts', data);
-    },
-    update: function update(id, data) {
-      return this.put('carts/' + id, data);
+      return this.post('createFromVisitorToken', data);
     }
   },
   customizables: {

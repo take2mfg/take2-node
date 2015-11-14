@@ -5,20 +5,6 @@ const Resource = 'Cart';
 
 describe(`${Resource} Resource`, function() {
 
-  describe('list', function() {
-    it('sends the correct request', function() {
-      take2.carts.list();
-      expect(take2.LAST_REQUEST).to.deep.equal({
-        method: 'GET',
-        url: 'http://take2-loopback.herokuapp.com:80/api/v1/carts',
-        headers: {
-          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
-          'Content-Type'  : 'application/json'
-        }
-      });
-    });
-  });
-
   describe('retrieve', function() {
     it('sends the correct request', function() {
       take2.carts.retrieve(1);
@@ -38,7 +24,7 @@ describe(`${Resource} Resource`, function() {
       take2.carts.create({ name: 'Test Data' });
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'POST',
-        url: 'http://take2-loopback.herokuapp.com:80/api/v1/carts',
+        url: 'http://take2-loopback.herokuapp.com:80/api/v1/createFromVisitorToken',
         headers: {
           'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
@@ -50,21 +36,5 @@ describe(`${Resource} Resource`, function() {
     });
   });
 
-  describe('update', function() {
-    it('sends the correct request', function() {
-      take2.carts.update(1, { name: 'Test Data' });
-      expect(take2.LAST_REQUEST).to.deep.equal({
-        method: 'PUT',
-        url: 'http://take2-loopback.herokuapp.com:80/api/v1/carts/1',
-        headers: {
-          'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
-          'Content-Type'  : 'application/json'
-        },
-        json: {
-          name: 'Test Data'
-        }
-      });
-    });
-  });
 
 });
