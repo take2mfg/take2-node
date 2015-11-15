@@ -46,7 +46,7 @@ var methods = {
       return this.get('carts/' + id);
     },
     create: function create(data) {
-      return this.post('createFromVisitorToken', data);
+      return this.post('carts/createFromVisitorToken', data);
     }
   },
   customizables: {

@@ -24,7 +24,7 @@ describe(`${Resource} Resource`, function() {
       take2.carts.create({ name: 'Test Data' });
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'POST',
-        url: 'http://take2-loopback.herokuapp.com:80/api/v1/createFromVisitorToken',
+        url: 'http://take2-loopback.herokuapp.com:80/api/v1/carts/createFromVisitorToken',
         headers: {
           'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
