@@ -43,7 +43,7 @@ function buildOptions(method, path, data) {
 var methods = {
   carts: {
     retrieve: function retrieve(id) {
-      return this.get('carts/' + id);
+      return this.get('carts/' + id + '?filter[include]=items');
     },
     create: function create(data) {
       return this.post('carts/createFromVisitorToken', data);

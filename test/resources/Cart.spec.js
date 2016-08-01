@@ -10,7 +10,7 @@ describe(`${Resource} Resource`, function() {
       take2.carts.retrieve(1);
       expect(take2.LAST_REQUEST).to.deep.equal({
         method: 'GET',
-        url: 'http://take2-loopback.herokuapp.com:80/api/v1/carts/1',
+        url: 'http://take2-loopback.herokuapp.com:80/api/v1/carts/1?filter[include]=items',
         headers: {
           'Authorization' : `Bearer ${TEST_AUTH_KEY}`,
           'Content-Type'  : 'application/json'
