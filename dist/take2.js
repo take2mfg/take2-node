@@ -41,6 +41,30 @@ function buildOptions(method, path, data) {
 }
 
 var methods = {
+  orders: {
+    list: function list() {
+      return this.get('orders');
+    },
+    retrieve: function retrieve(id) {
+      return this.get('orders/' + id);
+    }
+  },
+  tags: {
+    list: function list() {
+      return this.get('tags');
+    },
+    retrieve: function retrieve(id) {
+      return this.get('tags/' + id);
+    }
+  },
+  manufacturingTags: {
+    list: function list() {
+      return this.get('manufacturingTags');
+    },
+    retrieve: function retrieve(id) {
+      return this.get('manufacturingTags/' + id);
+    }
+  },
   carts: {
     retrieve: function retrieve(id) {
       return this.get('carts/' + id + '?filter[include]=items');
