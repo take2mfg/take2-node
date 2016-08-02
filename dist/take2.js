@@ -1,11 +1,12 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.buildOptions = buildOptions;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+exports.buildOptions = buildOptions;
 
 var _lodash = require('lodash');
 
@@ -16,6 +17,8 @@ var _request2 = require('request');
 var _request3 = _interopRequireDefault(_request2);
 
 var _rsvp = require('rsvp');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DEFAULT_HOST = "take2-loopback.herokuapp.com";
 var DEFAULT_PORT = 80;
@@ -139,9 +142,9 @@ function Take2(key, options) {
     'Content-Type': 'application/json'
   };
 
-  _lodash2['default'].each(methods, function (block, resource) {
+  _lodash2.default.each(methods, function (block, resource) {
     _this[resource] = _this[resource] || {};
-    _lodash2['default'].each(block, function (method, key) {
+    _lodash2.default.each(block, function (method, key) {
       _this[resource][key] = method.bind(_this);
     });
   });
@@ -175,23 +178,18 @@ Take2.prototype = {
 
     return options;
   },
-
   get: function get(path, data) {
     return this.request('GET', path, data);
   },
-
   post: function post(path, data) {
     return this.request('POST', path, data);
   },
-
   put: function put(path, data) {
     return this.request('PUT', path, data);
   },
-
   del: function del(path, data) {
     return this.request('DELETE', path, data);
   },
-
   request: function request(method, path, data) {
     var options = this.buildOptions.apply(this, arguments);
 
@@ -200,8 +198,8 @@ Take2.prototype = {
       this.REQUESTS.push(options);
     } else {
       return new _rsvp.Promise(function (resolve, reject) {
-        (0, _request3['default'])(options, function (err, res, body) {
-          var error = undefined;
+        (0, _request3.default)(options, function (err, res, body) {
+          var error = void 0;
 
           if (err) {
             error = err;
@@ -214,7 +212,7 @@ Take2.prototype = {
           }
 
           try {
-            if (typeof body === "object") {
+            if ((typeof body === 'undefined' ? 'undefined' : _typeof(body)) === "object") {
               resolve(body);
             } else {
               var _data = JSON.parse(body);
@@ -229,4 +227,4 @@ Take2.prototype = {
   }
 };
 
-module.exports = Take2;
+exports.default = Take2;
