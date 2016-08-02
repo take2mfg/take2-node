@@ -95,7 +95,7 @@ var methods = {
   },
   products: {
     list: function list() {
-      return this.get('products');
+      return this.get('products?filter[include]=tags&filter[include]=manufacturingTags');
     },
     retrieve: function retrieve(id) {
       return this.get('products/' + id);
@@ -108,6 +108,23 @@ var methods = {
     },
     destroy: function destroy(id) {
       return this.del('products/' + id);
+    }
+  },
+  templates: {
+    list: function list() {
+      return this.get('templates?filter[include]=tags');
+    },
+    retrieve: function retrieve(id) {
+      return this.get('templates/' + id);
+    },
+    create: function create(data) {
+      return this.post('templates', data);
+    },
+    update: function update(id, data) {
+      return this.put('templates/' + id, data);
+    },
+    destroy: function destroy(id) {
+      return this.del('templates/' + id);
     }
   },
   visitorTokens: {
